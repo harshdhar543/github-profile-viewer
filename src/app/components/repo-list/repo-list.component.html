@@ -1,1 +1,17 @@
-<p>repo-list works!</p>
+<div class="card">
+  <div class="card-body">
+    <h3>Public Repositories</h3>
+
+    <input type="text" class="form-control" placeholder="Search Repositories" />
+
+    <hr class="mx-auto" />
+
+    <div class="row">
+      <ng-container *ngFor="let item of repoData">
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <app-repo-card></app-repo-card>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
