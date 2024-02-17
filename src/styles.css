@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background: radial-gradient(#252525 1.9000000000000001px, #0a0a0a 0);
+  background-size: 35px 35px;
+  min-height: 97vh;
+  color: rgb(238, 232, 232);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
