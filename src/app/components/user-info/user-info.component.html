@@ -1,1 +1,177 @@
-<p>user-info works!</p>
+<h3>
+  <img
+    src="assets/svg/back.svg"
+    class="me-2 mb-1"
+    id="back-arrow"
+    routerLink="/Home"
+    title="Back to Search"
+  />
+  <span>User Details </span>
+</h3>
+
+<div class="row">
+  <div class="col-sm-12 col-md-6">
+    <div class="card my-2">
+      <div class="card-body">
+        <div class="header-main">
+          <div>
+            <img [src]="userData?.avatar_url" id="avatar" alt="Avatar" />
+          </div>
+
+          <div>
+            <h2>{{ userData?.name }}</h2>
+            <h5 class="cursor-pointer" (click)="openProfile(userData?.login)">
+              @{{ userData?.login }}
+            </h5>
+            <p>Joined On: {{ userData?.created_at | date : "longDate" }}</p>
+          </div>
+        </div>
+
+        <div class="px-3 mt-3">
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <p>
+                <span class="font-weight-bold">Bio: </span>
+                {{ userData?.bio || "--" }}
+              </p>
+            </div>
+            <div class="col-sm-12 col-md-6">
+              <p>
+                <span class="font-weight-bold">Location: </span
+                >{{ userData?.location || "--" }}
+              </p>
+            </div>
+            <div class="col-sm-12 col-md-6">
+              <p>
+                <span class="font-weight-bold">Company: </span
+                >{{ userData?.company || "--" }}
+              </p>
+            </div>
+            <div class="col-sm-12 col-md-6">
+              <p>
+                <span class="font-weight-bold">Blog: </span
+                >{{ userData?.blog || "--" }}
+              </p>
+            </div>
+            <div class="col-sm-12 col-md-6">
+              <p>
+                <span class="font-weight-bold">Email: </span
+                >{{ userData?.email || "--" }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-12 col-md-6">
+    <div class="small-card-flex">
+      <div class="col-sm-6 col-md-3 card small-card my-2">
+        <div class="card-body py-2">
+          <h5 class="text-center mb-1">Public Repos</h5>
+          <p class="text-center font-weight-bold mb-1">
+            {{ userData?.public_repos }}
+          </p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3 card small-card my-2">
+        <div class="card-body py-2">
+          <h5 class="text-center mb-1">Followers</h5>
+          <p class="text-center font-weight-bold mb-1">
+            {{ userData?.followers }}
+          </p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3 card small-card my-2">
+        <div class="card-body py-2">
+          <h5 class="text-center mb-1">Following</h5>
+          <p class="text-center font-weight-bold mb-1">
+            {{ userData?.following }}
+          </p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3 card small-card my-2">
+        <div class="card-body py-2">
+          <h5 class="text-center mb-1">Public Gists</h5>
+          <p class="text-center font-weight-bold mb-1">
+            {{ userData?.public_gists }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="px-2">
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <button
+            class="nav-link active"
+            id="followers-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#followers"
+            type="button"
+            role="tab"
+            aria-controls="followers"
+            aria-selected="true"
+          >
+            Followers
+          </button>
+          <button
+            class="nav-link"
+            id="following-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#following"
+            type="button"
+            role="tab"
+            aria-controls="following"
+            aria-selected="false"
+          >
+            Following
+          </button>
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+        <div
+          class="tab-pane fade show active"
+          id="followers"
+          role="tabpanel"
+          aria-labelledby="followers-tab"
+          tabindex="0"
+        >
+          <div class="px-3">
+            <div class="row">
+              <ng-container *ngFor="let item of followers">
+                <div class="col-sm-12 col-md-6">
+                  <app-follower-card
+                    [avatar]="item?.avatar_url"
+                    [username]="item?.login"
+                  ></app-follower-card>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-pane fade"
+          id="following"
+          role="tabpanel"
+          aria-labelledby="following-tab"
+          tabindex="0"
+        >
+          <div class="px-3">
+            <div class="row">
+              <ng-container *ngFor="let item of followings">
+                <div class="col-sm-12 col-md-6">
+                  <app-follower-card
+                    [avatar]="item?.avatar_url"
+                    [username]="item?.login"
+                  ></app-follower-card>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
