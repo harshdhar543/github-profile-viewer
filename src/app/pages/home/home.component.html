@@ -1,1 +1,43 @@
-<p>home works!</p>
+<div class="outer-container my-2 px-2">
+  <div class="col-sm-12 col-md-6 px-2">
+    <div class="content-container">
+      <h2>Search Username to view GitHub profile and repositories</h2>
+
+      <div class="row">
+        <div class="col-8">
+          <form [formGroup]="searchForm">
+            <input
+              type="text"
+              class="form-control"
+              formControlName="username"
+              id="username"
+              placeholder="Enter GitHub username"
+            />
+          </form>
+        </div>
+        <div class="col-2">
+          <button type="submit" class="btn btn-primary mb-2" (click)="search()">
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-12 col-md-6 border-left px-2 h-100" *ngIf="viewResult">
+    <h3 id="search-heading my-3">Search Result</h3>
+
+    <div class="search-results" *ngIf="searchResult.length > 0">
+      <ng-container *ngFor="let item of searchResult">
+        <app-user-card
+          [avatar]="item.avatar_url"
+          [name]="item.name"
+          [username]="item.login"
+          [type]="item.type"
+        ></app-user-card>
+      </ng-container>
+    </div>
+
+    <h5 class="text-center" *ngIf="searchResult.length === 0">No Data Found</h5>
+  </div>
+</div>
