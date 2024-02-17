@@ -17,6 +17,6 @@ export class UserCardComponent {
   ngOnInit() {}
 
   goToProfile(userId: string): void {
-    this.router.navigate(['Profile', userId]);
+    this.router.navigate(['profile', userId]);
   }
 }

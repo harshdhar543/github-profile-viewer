@@ -1,1 +1,16 @@
-<p>profile works!</p>
+<div class="container-fluid my-2">
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+      <app-user-info
+        [userData]="userData.user"
+        [followers]="userData.followersData"
+        [followings]="userData.followingsData"
+      ></app-user-info>
+    </div>
+  </div>
+  <div class="row my-2">
+    <div class="col-sm-12 col-md-12">
+      <app-repo-list [repoData]="userData.repoData"></app-repo-list>
+    </div>
+  </div>
+</div>
