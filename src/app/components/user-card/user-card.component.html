@@ -1,1 +1,13 @@
-<p>user-card works!</p>
+<div class="card my-2 cursor-pointer" (click)="goToProfile(username)">
+  <div class="card-body py-2">
+    <div class="d-flex">
+      <div>
+        <img class="avatar-img" [src]="avatar" title="avatar" />
+      </div>
+      <div class="ms-3">
+        <h4 class="mb-1">{{ username }}</h4>
+        <small>{{ type }}</small>
+      </div>
+    </div>
+  </div>
+</div>
