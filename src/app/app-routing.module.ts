@@ -1,12 +1,32 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './pages/home/home.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
-
+const routes: Routes = [
+  {
+    path: 'Home',
+    title: 'Home',
+    component: HomeComponent,
+  },
+  {
+    path: 'profile/:userid',
+    title: 'Profile',
+    component: ProfileComponent,
+  },
+  {
+    path: '',
+    component: HomeComponent,
+  },
+  {
+    path: '**',
+    redirectTo: '/Home',
+    pathMatch: 'full',
+  },
+];
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
