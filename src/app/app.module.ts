@@ -14,6 +14,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { SideNavComponent } from './layout/side-nav/side-nav.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FollowerCardComponent } from './components/follower-card/follower-card.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProfileComponent,
     HeaderComponent,
     FooterComponent,
-    SideNavComponent
+    SideNavComponent,
+    FollowerCardComponent
   ],
   imports: [
     BrowserModule,
