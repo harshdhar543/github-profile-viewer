@@ -11,6 +11,9 @@ export class ProfileComponent {
   constructor(private route: ActivatedRoute, private service: GithubService) {}
 
   username: string | null = null;
+  isDataLoaded: boolean = false
+  hasRepoDataLoaded: boolean = false
+  
   ngOnInit() {
     this.username = this.route.snapshot.paramMap.get('userid');
     console.log(this.username);
@@ -24,6 +27,7 @@ export class ProfileComponent {
       this.service.getUserDetails(this.username).subscribe((response) => {
         if (response) {
           this.userData['user'] = response;
+          this.isDataLoaded = true
           this.getRepoData();
           this.getFollowingsData();
           this.getFollowersData();
@@ -36,6 +40,7 @@ export class ProfileComponent {
     this.service.getRepositories(this.username).subscribe((response) => {
       if (response) {
         this.userData['repoData'] = response;
+        this.hasRepoDataLoaded = true
       }
     });
   }

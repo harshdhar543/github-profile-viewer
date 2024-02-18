@@ -1,5 +1,5 @@
-<div class="container-fluid my-2">
-  <div class="row">
+<div class="container-fluid my-2" *ngIf="isDataLoaded">
+  <div class="row py-2">
     <div class="col-sm-12 col-md-12">
       <app-user-info
         [userData]="userData.user"
@@ -10,7 +10,10 @@
   </div>
   <div class="row my-2">
     <div class="col-sm-12 col-md-12">
-      <app-repo-list [repoData]="userData.repoData"></app-repo-list>
+      <app-repo-list
+        [repoData]="userData.repoData"
+        [dataLoaded]="hasRepoDataLoaded"
+      ></app-repo-list>
     </div>
   </div>
 </div>

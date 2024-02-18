@@ -2,27 +2,40 @@
   <div class="card-body">
     <h3>Public Repositories</h3>
 
-    <input type="text" class="form-control" placeholder="Search Repositories" />
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Search Repositories"
+      (keyup)="searchRepos($event)"
+    />
 
     <hr class="mx-auto" />
 
     <div class="row">
-      <ng-container
-        *ngFor="
-          let item of repoData
-            | slice : (page - 1) * pageSize : page * pageSize;
-        "
-      >
-        <div class="col-xs-12 col-sm-6 col-xxl-4 my-2 h-100">
+      <ng-container *ngIf="dataLoaded">
+        <div
+          class="col-xs-12 col-sm-6 col-xxl-4 my-2 h-100"
+          *ngFor="
+            let item of filteredData
+              | slice : (page - 1) * pageSize : page * pageSize
+          "
+        >
           <app-repo-card [data]="item"></app-repo-card>
         </div>
       </ng-container>
+
+      <div
+        class="d-flex justify-content-center align-items-center"
+        *ngIf="filteredData?.length == 0 || !dataLoaded"
+      >
+        <h4>No Data Found</h4>
+      </div>
 
       <div class="d-flex justify-content-end">
         <ngb-pagination
           [(page)]="page"
           [pageSize]="pageSize"
-          [collectionSize]="repoData?.length || 0"
+          [collectionSize]="filteredData?.length || 0"
         />
       </div>
     </div>
