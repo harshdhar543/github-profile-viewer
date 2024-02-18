@@ -8,10 +8,11 @@
 
 .small-card {
   width: 9.375rem;
+  max-height: 6rem;
 }
 
 .small-card p {
-  font-size: 2rem;
+  font-size: 1.3rem;
 }
 
 #avatar {
