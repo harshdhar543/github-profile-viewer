@@ -132,7 +132,7 @@
       </nav>
       <div class="tab-content" id="nav-tabContent">
         <div
-          class="tab-pane fade show active"
+          class="tab-pane fade show active h-100"
           id="followers"
           role="tabpanel"
           aria-labelledby="followers-tab"
@@ -141,7 +141,7 @@
           <div class="px-3">
             <div class="row">
               <ng-container *ngFor="let item of followers">
-                <div class="col-sm-12 col-md-6">
+                <div class="col-sm-12 col-lg-6">
                   <app-follower-card
                     [avatar]="item?.avatar_url"
                     [username]="item?.login"
@@ -150,9 +150,15 @@
               </ng-container>
             </div>
           </div>
+          <div
+            class="d-flex align-items-center justify-content-center h-100"
+            *ngIf="followers?.length === 0"
+          >
+            <h5>No Data Found</h5>
+          </div>
         </div>
         <div
-          class="tab-pane fade"
+          class="tab-pane fade h-100"
           id="following"
           role="tabpanel"
           aria-labelledby="following-tab"
@@ -161,7 +167,7 @@
           <div class="px-3">
             <div class="row">
               <ng-container *ngFor="let item of followings">
-                <div class="col-sm-12 col-md-6">
+                <div class="col-sm-12 col-lg-6">
                   <app-follower-card
                     [avatar]="item?.avatar_url"
                     [username]="item?.login"
@@ -169,6 +175,13 @@
                 </div>
               </ng-container>
             </div>
+          </div>
+
+          <div
+            class="d-flex align-items-center justify-content-center h-100"
+            *ngIf="followings?.length === 0"
+          >
+            <h5>No Data Found</h5>
           </div>
         </div>
       </div>

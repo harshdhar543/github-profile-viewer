@@ -2,10 +2,23 @@
   width: 2rem;
 }
 .card {
-  background-color: #e2e7eb;
-  box-shadow: 0px 0px 6px 4px rgb(45 60 65);
+  background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(0, 0, 0, 0.15) 100%
+    ),
+    radial-gradient(
+        at top center,
+        rgba(255, 255, 255, 0.4) 0%,
+        rgba(0, 0, 0, 0.4) 120%
+      )
+      #989898;
+  box-shadow: 0px 0px 4px 4px rgb(77 83 85);
 }
 
+h3 {
+  color: #d4cec4;
+}
 .small-card {
   width: 9.375rem;
   max-height: 6rem;
@@ -59,7 +72,17 @@ p {
 }
 
 .nav-tabs .nav-link.active {
-  background-color: #e2e7eb;
+  background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(0, 0, 0, 0.15) 100%
+    ),
+    radial-gradient(
+        at top center,
+        rgba(255, 255, 255, 0.4) 0%,
+        rgba(0, 0, 0, 0.4) 120%
+      )
+      #989898;
   border-bottom: 0.3rem solid rgb(21, 176, 237);
   color: black;
   font-weight: bold;
