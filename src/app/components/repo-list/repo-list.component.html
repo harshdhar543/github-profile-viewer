@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card h-100">
   <div class="card-body">
     <h3>Public Repositories</h3>
 
@@ -7,11 +7,24 @@
     <hr class="mx-auto" />
 
     <div class="row">
-      <ng-container *ngFor="let item of repoData">
-        <div class="col-xs-12 col-sm-6 col-md-4">
-          <app-repo-card></app-repo-card>
+      <ng-container
+        *ngFor="
+          let item of repoData
+            | slice : (page - 1) * pageSize : page * pageSize;
+        "
+      >
+        <div class="col-xs-12 col-sm-6 col-xxl-4 my-2 h-100">
+          <app-repo-card [data]="item"></app-repo-card>
         </div>
       </ng-container>
+
+      <div class="d-flex justify-content-end">
+        <ngb-pagination
+          [(page)]="page"
+          [pageSize]="pageSize"
+          [collectionSize]="repoData?.length || 0"
+        />
+      </div>
     </div>
   </div>
 </div>

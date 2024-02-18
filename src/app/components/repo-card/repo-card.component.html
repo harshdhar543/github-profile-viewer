@@ -1,1 +1,48 @@
-<p>repo-card works!</p>
+<div class="card h-100">
+  <div class="card-body py-2">
+    <h3 class="mb-0">
+      <a class="repoName" [href]="data?.html_url" target="_blank">
+        {{ data?.name }}</a
+      >
+      <span class="public-private-label align-items-center ms-1 mb-1">
+        <ng-container *ngIf="data?.private">Private</ng-container>
+        <ng-container *ngIf="!data?.private">Public</ng-container>
+      </span>
+    </h3>
+    <!-- <small class="small mb-1" *ngIf="data?.fork">
+      Forked from
+      <a class="Link--muted Link--inTextBlock" href="/localstack/.github"
+        >localstack/.github</a
+      >
+    </small> -->
+
+    <p class="description mb-2">
+      {{ data?.description }}
+    </p>
+
+    <div class="topics pb-1 mb-2" *ngIf="data?.topics?.length > 0">
+      <ng-container *ngFor="let topic of data?.topics">
+        <span class="topic-tag cursor-pointer" (click)="goToTopics(topic)">{{
+          topic
+        }}</span>
+      </ng-container>
+    </div>
+
+    <hr class="mx-auto my-1" />
+    <div class="repo-footer">
+      <span
+        class="repo-language-color me-1"
+        [style.background-color]="languageColor[data?.language]"
+        *ngIf="data?.language"
+      ></span>
+      <span class="language me-4" *ngIf="data?.language">{{
+        data?.language
+      }}</span>
+      <span class="me-4" *ngIf="data?.license">
+        {{ data?.license?.name }}
+      </span>
+
+      <span>Updated {{ data?.updated_at | date : "mediumDate" }}</span>
+    </div>
+  </div>
+</div>

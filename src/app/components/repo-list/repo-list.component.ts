@@ -7,4 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class RepoListComponent {
   @Input() repoData = [];
+
+  page = 1;
+  pageSize = 10;
 }
