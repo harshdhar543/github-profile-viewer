@@ -15,6 +15,7 @@ import { SideNavComponent } from './layout/side-nav/side-nav.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FollowerCardComponent } from './components/follower-card/follower-card.component';
+import {  NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { FollowerCardComponent } from './components/follower-card/follower-card.
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
